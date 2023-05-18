@@ -28,7 +28,8 @@ For more information, type:
 Below is an example where the container is built with GitHub Actions:
 ```bash
 python create-container.py -b yaml/psana1/ana-4.0.43-py3.yml -o ana-4.0.43-py3.yml -e -c -r fpoitevi -n ana -t 4.0.43-py3
-git git add .github/workflows/main.yaml
+git add .github/workflows/main.yaml
+git add docker/ana-4.0.43-py3.yml
 git tag -a ezbuild-ana-4.0.43-py3 -m "building ana-4.0.43-py3 and pushing to fpoitevi's DockerHub"
 git push origin ezbuild-ana-4.0.43-py3
 ```

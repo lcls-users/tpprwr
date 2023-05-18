@@ -252,7 +252,7 @@ if args.render is True:
         args.repository, args.imagename, args.tag
     )
     docker_build_args = (
-        "--build-arg inputyaml={}"
+        "--build-arg inputyaml={} "
         "--tag {}".format(
             args.output_filename,
             docker_build_tag,

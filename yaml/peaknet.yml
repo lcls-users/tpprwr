@@ -1,3 +1,7 @@
 dependencies:
-  - pip:
-    - torch>=1.0
+  - cudatoolkit=11.4
+  - cupy
+  - h5py
+  - pytorch=1.*="*cuda*"
+  - scikit-image
+  - tqdm
