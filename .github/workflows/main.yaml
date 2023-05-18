@@ -1,12 +1,12 @@
 # Do not edit, generated automatically
 # by the create-container.py script.
-# Last updated on: 2022-10-03T15:30:06-07:00
+# Last updated on: 2023-05-17T20:17:28-07:00
 
 name: tpprwr
 on:
   push:
     tags:
-      - 'build-*'
+      - 'ezbuild-*'
 
 jobs:
     build-container:
@@ -21,13 +21,13 @@ jobs:
         - name: install dependencies
           run: pip install pyyaml docker jinja2
         - name: create yaml file
-          run: python create-container.py -r fpoitevi -t ana -v nersc-4.4.10 -o nersc-ana-4.4.10.yml -b yaml/psana2/env_create.yaml -a yaml/psana2/nersc-version.yml
+          run: python create-container.py -r fpoitevi -n ana -t 4.0.43-py3 -o ana-4.0.43-py3.yml -b yaml/psana1/ana-4.0.43-py3.yml
         - name: build container
-          run: docker build --build-arg inputyaml=nersc-ana-4.4.10.yml --build-arg psana_version=ana:nersc-4.4.10 --tag fpoitevi/ana:nersc-4.4.10 docker
+          run: docker build --build-arg inputyaml=ana-4.0.43-py3.yml--tag fpoitevi/ana:4.0.43-py3 docker
         - name: login to DockerHub
           uses: docker/login-action@v1
           with:
             username: ${{ secrets.DOCKERHUB_FRED_USERNAME }}
             password: ${{ secrets.DOCKERHUB_FRED_TOKEN }}
         - name: upload container
-          run: docker push fpoitevi/ana:nersc-4.4.10
+          run: docker push fpoitevi/ana:4.0.43-py3
