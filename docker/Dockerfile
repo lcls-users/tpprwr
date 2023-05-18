@@ -1,6 +1,5 @@
 FROM docker.io/ubuntu:18.04
 ARG inputyaml
-ARG psana_version
 WORKDIR /root
 
 # Install useful packages
@@ -24,6 +23,3 @@ RUN . /opt/anaconda/etc/profile.d/conda.sh && \
 # Copy and add the entrypoint script
 ADD entrypoint.sh /opt/entrypoint.sh
 ENTRYPOINT ["/opt/entrypoint.sh"]
-
-# Set an environment variable that stores the version of the container
-ENV PSANA_VERSION ${psana_version}

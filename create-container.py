@@ -78,20 +78,20 @@ parser.add_argument(
     required=True,
 )
 parser.add_argument(
+    "-n",
+    "--image-name",
+    dest="imagename",
+    type=str,
+    help="Name for the docker image",
+    action="store",
+    required=True,
+)
+parser.add_argument(
     "-t",
     "--tag",
     dest="tag",
     type=str,
     help="Tag for the docker image",
-    action="store",
-    required=True,
-)
-parser.add_argument(
-    "-v",
-    "--version",
-    dest="version",
-    type=str,
-    help="Version for the docker image",
     action="store",
     required=True,
 )
@@ -143,7 +143,7 @@ if args.additional_env_filename is not None:
     if "channels" in additional_env:
         additional_env["channels"].extend(base_env["channels"])
         base_env["channels"] = additional_env["channels"]
-    base_env["name"] = "{}-{}".format(args.tag, args.version)
+    base_env["name"] = "{}-{}".format(args.repository, args.tags)
 
 # Write output YAML environment file
 print(
@@ -165,7 +165,7 @@ if args.build is True:
     print(
         ">> Building docker image with tag: {}/{}:{}. "
         "Please wait (it can take several minutes)".format(
-            args.repository, args.tag, args.version
+            args.repository, args.imagename, args.tag
         )
     )
     try:
@@ -184,10 +184,9 @@ if args.build is True:
             rm=True,
             pull=True,
             nocache=args.nocache,
-            tag="{}/{}:{}".format(args.repository, args.tag, args.version),
+            tag="{}/{}:{}".format(args.repository, args.imagename, args.tag),
             buildargs={
                 "inputyaml": args.output_filename,
-                "psana_version": "{}:{}".format(args.tag, args.version),
             },
         )
     except TypeError as ext:
@@ -199,26 +198,23 @@ if args.build is True:
         print(
             ">> To see the full error, build the image manually with: "
             "'docker build --build-arg inputyaml={} "
-            "--build-arg psana_version={}:{} "
             "-t {}/{}:{} docker' and see the output of the command ".format(
                 args.output_filename,
-                args.tag,
-                args.version,
                 args.repository,
-                args.tag,
-                args.version,
+                args.imagename,
+                args.tag
             )
         )
         sys.exit(1)
     print(
         ">> Image {}/{}:{} built. It can be found in the 'docker images' "
-        "list".format(args.repository, args.tag, args.version)
+        "list".format(args.repository, args.imagename, args.tag)
     )
     print(">> To upload the image to DockerHub:")
     print(">> 'docker login'")
     print(
         ">> 'docker push {}/{}:{}'".format(
-            args.repository, args.tag, args.version
+            args.repository, args.imagename, args.tag
         )
     )
 else:
@@ -226,13 +222,11 @@ else:
     print(
         ">> To build the image manually: 'docker build "
         "--build-arg inputyaml={} "
-        "--build-arg psana_version={}:{} -t {}/{}:{} docker'".format(
+        "-t {}/{}:{} docker'".format(
             args.output_filename,
-            args.tag,
-            args.version,
             args.repository,
-            args.tag,
-            args.version,
+            args.imagename,
+            args.tag
         )
     )
     print(">> Use -d option to build the image automatically")
@@ -242,10 +236,10 @@ if args.render is True:
     jinja2_env = jinja2.Environment(loader=jinja2.FileSystemLoader("./"))
     jinja2_template = jinja2_env.get_template("github_actions.template")
 
-    create_container_args = "-r {} -t {} -v {} -o {} -b {}".format(
+    create_container_args = "-r {} -n {} -t {} -o {} -b {}".format(
         args.repository,
+        args.imagename,
         args.tag,
-        args.version,
         args.output_filename,
         args.base_env_filename,
     )
@@ -255,14 +249,12 @@ if args.render is True:
             args.additional_env_filename,
         )
     docker_build_tag = "{}/{}:{}".format(
-        args.repository, args.tag, args.version
+        args.repository, args.imagename, args.tag
     )
     docker_build_args = (
-        "--build-arg inputyaml={} --build-arg psana_version={}:{} "
+        "--build-arg inputyaml={}"
         "--tag {}".format(
             args.output_filename,
-            args.tag,
-            args.version,
             docker_build_tag,
         )
     )
