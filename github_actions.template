@@ -6,7 +6,7 @@ name: tpprwr
 on:
   push:
     tags:
-      - 'build-*'
+      - 'ezbuild-*'
 
 jobs:
     build-container:
