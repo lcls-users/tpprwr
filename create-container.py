@@ -143,7 +143,7 @@ if args.additional_env_filename is not None:
     if "channels" in additional_env:
         additional_env["channels"].extend(base_env["channels"])
         base_env["channels"] = additional_env["channels"]
-    base_env["name"] = "{}-{}".format(args.repository, args.tags)
+    base_env["name"] = "{}-{}".format(args.imagename, args.tag)
 
 # Write output YAML environment file
 print(
