@@ -5,4 +5,4 @@
 #SBATCH --output=output-%j.txt --error=output-%j.txt
 #SBATCH --nodes=1 --ntasks=1
 #SBATCH --cpus-per-task=1
-singularity run -B /sdf,/scratch,/lscratch /sdf/group/lcls/ds/tools/singularity_images/s3df_latest.sif echo "test"
+singularity exec -B /sdf /sdf/group/lcls/ds/tools/singularity_images/s3df_latest.sif echo "test"
