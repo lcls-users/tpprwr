@@ -5,12 +5,17 @@
 #SBATCH --error=cmtip-sim.err
 #SBATCH --time=0:15:00
 #SBATCH --account lcls
-#SBATCH -p milano
+#SBATCH --partition=ampere
 #SBATCH --ntasks=1
 #SBATCH --nodes=1
+#SBATCH --gpus a100:1
+#SBATCH --cpus-per-task=16
 
 source /sdf/group/lcls/ds/ana/sw/conda1/manage/bin/psconda.sh
-conda activate /sdf/group/lcls/ds/tools/conda_envs/cmtip
+conda activate /sdf/group/lcls/ds/tools/conda_envs/cmtip-cuda
+
+# USE_CUPY needs to be set for Skopi to use GPUs
+export USE_CUPY=1
 
 work_dir=${PWD}
 mkdir -p simulation
