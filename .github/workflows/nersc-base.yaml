@@ -2,12 +2,15 @@ name: nersc-base
 
 on:
   push:
-    branches: [ "main,refactor" ]
+    branches:
+      - 'main'
+      - 'refactor'
     paths:
       - 'docker/nersc/Dockerfile'
       - '.github/workflows/nersc-base.yaml'
   pull_request:
-    branches: [ "main" ]
+    branches:
+      - 'main'
     paths:
       - 'docker/nersc/Dockerfile'
       - '.github/workflows/nersc-base.yaml'
