@@ -2,12 +2,15 @@ name: nersc-base-psana2
 
 on:
   push:
-    branches: [ "main,refactor" ]
+    branches:
+      - 'main'
+      - 'refactor'
     paths:
       - 'docker/nersc/base/psana2/Dockerfile'
       - '.github/workflows/nersc-base-psana2.yaml'
   pull_request:
-    branches: [ "main" ]
+    branches:
+      - 'main'
     paths:
       - 'docker/nersc/base/psana2/Dockerfile'
       - '.github/workflows/nersc-base-psana2.yaml'
