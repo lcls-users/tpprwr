@@ -17,7 +17,7 @@ RUN pip3 install meson
 SHELL ["/bin/bash", "-c"]
 
 COPY $inputtxt /opt/$inputtxt
-RUN conda install -c lcls-ii -c conda-forge -c defaults -c tidair-packages -c cogsci --file $inputtxt
+RUN conda install --experimental-solver=libmamba -c lcls-ii -c conda-forge -c defaults -c tidair-packages -c cogsci --file $inputtxt
 
 WORKDIR /home/psana2-build
 
