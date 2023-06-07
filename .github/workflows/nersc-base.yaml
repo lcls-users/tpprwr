@@ -5,12 +5,12 @@ on:
     branches: [ "main,refactor" ]
     paths:
       - 'docker/nersc/Dockerfile'
-      - '.github/workflows/nersc-base.yml'
+      - '.github/workflows/nersc-base.yaml'
   pull_request:
     branches: [ "main" ]
     paths:
       - 'docker/nersc/Dockerfile'
-      - '.github/workflows/nersc-base.yml'
+      - '.github/workflows/nersc-base.yaml'
 
 jobs:
   build-container:
