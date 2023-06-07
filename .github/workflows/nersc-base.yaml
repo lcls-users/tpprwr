@@ -1,4 +1,4 @@
-name: nersc
+name: nersc-base
 
 on:
   push:
