@@ -1,4 +1,4 @@
-FROM fpoitevi/psana2nersc:latest
+FROM fpoitevi/nersc:base-psana2
 
 WORKDIR /home/psana2-build
 

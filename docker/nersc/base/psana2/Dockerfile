@@ -1,4 +1,4 @@
-FROM fpoitevi/nersc:latest
+FROM fpoitevi/nersc:base
 
 ARG inputtxt
 
