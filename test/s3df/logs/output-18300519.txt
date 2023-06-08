@@ -1,0 +1,3 @@
+[33mWARNING:[0m SINGULARITY_TMPDIR and APPTAINER_TMPDIR have different values, using the latter
+testing testing...
+name: sdfmilan020, my rank is 0
