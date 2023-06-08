@@ -1,9 +1,19 @@
-name: s3df
+name: s3df-base
 
 on:
   push:
-    tags:
-      - 'build-s3df'
+    branches:
+      - 'main'
+      - 'refactor'
+    paths:
+      - 'docker/s3df/Dockerfile'
+      - '.github/workflows/s3df-base.yaml'
+  pull_request:
+    branches:
+      - 'main'
+    paths:
+      - 'docker/s3df/Dockerfile'
+      - '.github/workflows/s3df-base.yaml'
 
 jobs:
   build-container:
