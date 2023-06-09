@@ -1,4 +1,4 @@
-FROM docker.io/ubuntu:18.04
+FROM docker.io/library/ubuntu:latest
 
 WORKDIR /opt
 
@@ -14,8 +14,8 @@ RUN wget https://repo.anaconda.com/miniconda/Miniconda3-latest-Linux-x86_64.sh &
     rm /opt/Miniconda3-latest-Linux-x86_64.sh
 
 RUN . /opt/anaconda/etc/profile.d/conda.sh && conda update -c conda-forge conda
-RUN . /opt/anaconda/etc/profile.d/conda.sh && conda install conda-libmamba-solver --yes
-RUN . /opt/anaconda/etc/profile.d/conda.sh && conda install --experimental-solver=libmamba mpi=1.0=mpich mpich=3.3 mpi4py --yes
+RUN . /opt/anaconda/etc/profile.d/conda.sh && conda install -n base conda-libmamba-solver && conda config --set solver libmamba
+RUN . /opt/anaconda/etc/profile.d/conda.sh && conda install mpi=1.0=mpich mpich=3.3 mpi4py --yes
 
 # Copy and add the entrypoint script
 ADD entrypoint.sh /opt/entrypoint.sh
