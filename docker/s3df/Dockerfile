@@ -14,10 +14,6 @@ RUN wget https://repo.anaconda.com/miniconda/Miniconda3-latest-Linux-x86_64.sh &
     rm /opt/Miniconda3-latest-Linux-x86_64.sh
 
 # Install MPI related libraries
-#RUN . /opt/anaconda/etc/profile.d/conda.sh && conda update -c conda-forge conda --yes
-#RUN . /opt/anaconda/etc/profile.d/conda.sh && conda install -c conda-forge mamba --yes
-#RUN . /opt/anaconda/etc/profile.d/conda.sh && mamba install mpi=1.0=mpich mpich=3.3 mpi4py --yes
-
 RUN . /opt/anaconda/etc/profile.d/conda.sh && \
     conda update -c conda-forge conda --yes && \
     conda install -c conda-forge mamba --yes && \

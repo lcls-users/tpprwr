@@ -1,3 +1,0 @@
-[33mWARNING:[0m SINGULARITY_TMPDIR and APPTAINER_TMPDIR have different values, using the latter
-[mpiexec@sdfmilan020] HYDU_create_process (utils/launch/launch.c:73): execvp error on file srun (No such file or directory)
-slurmstepd: error: *** JOB 18300467 ON sdfmilan020 CANCELLED AT 2023-06-08T09:59:02 ***

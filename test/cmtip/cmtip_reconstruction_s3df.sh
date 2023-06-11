@@ -26,7 +26,6 @@ cat >> temp_${vnum}.sh <<EOF
 #SBATCH --mem=196G
 
 module load mpi/mpich-x86_64
-which mpirun
 
 source /sdf/group/lcls/ds/ana/sw/conda1/manage/bin/psconda.sh
 
