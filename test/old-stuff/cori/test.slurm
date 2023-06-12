@@ -1,7 +1,7 @@
 #!/bin/bash
 #SBATCH --account=lcls
 #SBATCH --job-name=test
-#SBATCH --output=output-%j.txt --error=output-%j.txt
+#SBATCH --output=logs/output-%j.txt --error=logs/output-%j.txt
 #SBATCH --nodes=1 
 #SBATCH --tasks-per-node=1
 #SBATCH --constraint=haswell
