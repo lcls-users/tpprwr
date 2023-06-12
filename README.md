@@ -11,29 +11,7 @@ conda env create -f tpprwr.yml
 
 ## Usage
 
-### Manually maintained environments
-
-#### S3DF
-
-With the following `~/.condarc` file:
-```conda
-channels:
-  - defaults
-  - anaconda
-  - conda-forge
-  - lcls-i
-envs_dirs:
-  - /sdf/group/lcls/ds/tools/conda_envs
-pkgs_dirs:
-  - /sdf/group/lcls/ds/tools/conda_pkgs
-```
-
-##### Careless
-
-Running the following command: `cd install; sbatch careless-s3df-install.slurm`
-will create `/sdf/group/lcls/ds/tools/conda_envs/careless`
-
-To test, run `cd test/careless; sbatch --array=2,3 slurm-dw-array-grid_s3df.sh` 
+See information under `conda/` or `docker/`.
 
 ### Automated
 
