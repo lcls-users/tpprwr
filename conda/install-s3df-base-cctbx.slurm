@@ -26,6 +26,5 @@ wget https://raw.githubusercontent.com/cctbx/cctbx_project/master/libtbx/auto_bu
 wget https://raw.githubusercontent.com/cctbx/cctbx_project/master/xfel/conda_envs/psana_environment.yml
 mamba env create -f psana_environment.yml -p $PWD/conda_base
 conda activate `pwd`/conda_base
-python bootstrap.py --builder=xfel --use-conda=$PWD/conda_base --nproc=48 \
-  --python=39 --no-boost-src hot update build
+python bootstrap.py --builder=xfel --use-conda=$PWD/conda_base --nproc=48 --python=39 --no-boost-src hot update build
 echo $PWD/build/conda_setpaths.sh
