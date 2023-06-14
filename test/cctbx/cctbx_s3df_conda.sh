@@ -9,9 +9,9 @@
 # cctbx.xfel Build instructions can be found here:
 # https://github.com/cctbx/cctbx_project/tree/master/xfel/conda_envs
 
-# make sure conda is up to date
+#
 # and git-lfs is installed in the base environment.
-source ~/miniconda3/etc/profile.d/conda.sh
+source /sdf/group/lcls/ds/tools/cctbx/build/conda_setpaths.sh
 conda update conda --yes
 conda install git-lfs
 
