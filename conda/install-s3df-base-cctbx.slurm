@@ -20,6 +20,7 @@ cd /sdf/group/lcls/ds/tools
 if [ -d cctbx ]; then
   echo "STOP: /sdf/group/lcls/ds/tools/cctbx already exists!"
   exit
+fi
 
 mkdir cctbx; cd cctbx
 wget https://raw.githubusercontent.com/cctbx/cctbx_project/master/libtbx/auto_build/bootstrap.py
