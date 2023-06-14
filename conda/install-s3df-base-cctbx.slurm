@@ -17,6 +17,10 @@ conda install mamba
 
 # install cctbx
 cd /sdf/group/lcls/ds/tools
+if [ -d cctbx ]; then
+  echo "STOP: /sdf/group/lcls/ds/tools/cctbx already exists!"
+  exit
+
 mkdir cctbx; cd cctbx
 wget https://raw.githubusercontent.com/cctbx/cctbx_project/master/libtbx/auto_build/bootstrap.py
 wget https://raw.githubusercontent.com/cctbx/cctbx_project/master/xfel/conda_envs/psana_environment.yml
