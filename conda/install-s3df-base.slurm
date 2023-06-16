@@ -10,4 +10,3 @@ conda update conda --yes
 conda create --name base-mpich mamba python=3 --yes
 conda activate base-mpich
 mamba install mpi=1.0=mpich mpich=3.3 mpi4py --yes
-

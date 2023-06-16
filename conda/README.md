@@ -17,17 +17,13 @@ We list below the softwares currently maintained in conda environments at S3DF.
 
 ## cmtip
 
-*WIP: The setup needs to be further simplified: 
-at the moment, we maintain two environments, one with and one without cupy (and cudatoolkit). 
-In theory, cupy should help with the simulation script that relies on skopi but does not work at the moment (see [issue](https://github.com/apeck12/cmtip/issues/25)). 
-The reconstruction script was tested successfully, although a fix is needed (see [issue](https://github.com/apeck12/cmtip/issues/26)).
-To make use of GPUs, the reconstruction script needs pycuda, and we will use a container approach for that (coming up).*
+*WIP: To make use of GPUs, the reconstruction script needs pycuda, and we will use a container approach for that (coming up).*
 
 | Step         | Command                                                                                                  | Comment                                                                                                                                   | 
 |--------------|----------------------------------------------------------------------------------------------------------|-------------------------------------------------------------------------------------------------------------------------------------------|
-| Installation | `sbatch install-s3df-base-cmtip.slurm`                                                                   | *This will create `/sdf/group/lcls/ds/tools/conda_envs/cmtip`<br> unless you set a different `envs_dirs` (see additional remarks below).* |
+| Installation | `sbatch install-s3df-cuda-cmtip.slurm`                                                                   | *This will create `/sdf/group/lcls/ds/tools/conda_envs/cmtip`* |
 | Usage        | `source /sdf/group/lcls/ds/ana/sw/conda1/manage/bin/psconda.sh`<br>`conda activate cmtip`                |                                                                                               |
-| Test         | `cd tpprwr/test/cmtip`<br>`sbatch cmtip_cpu_simulation_s3df.sh`<br>`sbatch cmtip_reconstruction_s3df.sh` |                                                                                                                                           |
+| Test         | `cd tpprwr/test/cmtip`<br>`sbatch cmtip_simulation_s3df.sh`<br>`sbatch cmtip_reconstruction_s3df.sh` |                                                                                                                                           |
 
 
 
