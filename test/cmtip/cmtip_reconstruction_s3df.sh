@@ -1,7 +1,7 @@
 #!/bin/bash
 
 source /sdf/group/lcls/ds/ana/sw/conda1/manage/bin/psconda.sh
-conda activate /sdf/group/lcls/ds/tools/conda_envs/cmtip-cuda
+conda activate /sdf/group/lcls/ds/tools/conda_envs/cmtip
 
 work_dir=${PWD}
 mkdir -p reconstruction
@@ -29,7 +29,7 @@ module load mpi/mpich-x86_64
 
 source /sdf/group/lcls/ds/ana/sw/conda1/manage/bin/psconda.sh
 
-conda activate /sdf/group/lcls/ds/tools/conda_envs/cmtip-cuda
+conda activate /sdf/group/lcls/ds/tools/conda_envs/cmtip
 
 cd ${work_dir}/reconstruction
 
