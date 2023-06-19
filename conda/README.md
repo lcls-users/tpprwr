@@ -19,11 +19,11 @@ We list below the softwares currently maintained in conda environments at S3DF.
 
 *WIP: To make use of GPUs, the reconstruction script needs pycuda, and we will use a container approach for that (coming up).*
 
-| Step         | Command                                                                                                  | Comment                                                                                                                                   | 
-|--------------|----------------------------------------------------------------------------------------------------------|-------------------------------------------------------------------------------------------------------------------------------------------|
-| Installation | `sbatch install-s3df-cuda-cmtip.slurm`                                                                   | *This will create `/sdf/group/lcls/ds/tools/conda_envs/cmtip`* |
-| Usage        | `source /sdf/group/lcls/ds/ana/sw/conda1/manage/bin/psconda.sh`<br>`conda activate cmtip`                |                                                                                               |
-| Test         | `cd tpprwr/test/cmtip`<br>`sbatch cmtip_simulation_s3df.sh`<br>`sbatch cmtip_reconstruction_s3df.sh` |                                                                                                                                           |
+| Step         | Command                                                                                         | Comment                                                                                                                                   | 
+|--------------|-------------------------------------------------------------------------------------------------|-------------------------------------------------------------------------------------------------------------------------------------------|
+| Installation | `sbatch install-s3df-cuda-cmtip.slurm`                                                          | *This will create `/sdf/group/lcls/ds/tools/conda_envs/cmtip`* |
+| Usage        | `source /sdf/group/lcls/ds/ana/sw/conda1/manage/bin/psconda.sh`<br>`conda activate cmtip`       |                                                                                               |
+| Test         | `cd tpprwr/test/cmtip`<br>`sbatch cmtip_simulation_s3df.sh`<br>`./cmtip_reconstruction_s3df.sh` |                                                                                                                                           |
 
 
 
