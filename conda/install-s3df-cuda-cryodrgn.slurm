@@ -17,6 +17,9 @@ conda activate cryodrgn
 conda install pytorch cudatoolkit=11.7 -c pytorch
 
 pip install --upgrade pip
-pip install cryodrgn
+#pip install cryodrgn
+git clone https://github.com/zhonge/cryodrgn.git /sdf/group/lcls/ds/tools/cryodrgn
+cd /sdf/group/lcls/ds/tools/cryodrgn
+pip install .
 
 cryodrgn --version
