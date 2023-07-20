@@ -14,7 +14,7 @@ source /sdf/group/lcls/ds/ana/sw/conda1/manage/bin/psconda.sh
 conda create --name cryodrgn python=3.9
 conda activate cryodrgn
 
-conda install pytorch cudatoolkit=11.8 -c pytorch
+conda install pytorch cudatoolkit=11.7 -c pytorch
 
 pip install --upgrade pip
 pip install cryodrgn
